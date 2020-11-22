@@ -1,2 +1,2 @@
 # PhoneStore
-Web Aplication for phone store. Main stack: Java + Spring. Others stack: Hibernate + PostgreSQL + HTML + CSS
+Web Aplication for phone store. Main stack: Java + Spring + JPA. Minor stack: Hibernate + PostgreSQL + HTML + CSS
