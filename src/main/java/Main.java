@@ -1,15 +1,13 @@
-import dataBase.models.Customer;
-import dataBase.models.Product;
-import dataBase.models.User;
-import dataBase.services.CustomerServiceImpl;
-import dataBase.services.ProductServiceImpl;
-import dataBase.services.UserServiceImpl;
-import dataBase.services.impl.UserService;
+import PhoneStore.ProjectBeans.OtherBean;
+import PhoneStore.ProjectBeans.TestBean;
+import PhoneStore.dataBase.services.ProductServiceImpl;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        OtherBean testBean = context.getBean("otherBean", OtherBean.class);
     }
 }
