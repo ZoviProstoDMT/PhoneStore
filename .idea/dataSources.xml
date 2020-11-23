@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ShopDB@localhost" uuid="a1c6cd4f-456d-4837-b8c3-a1457130f499">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="1b24dc1f-6974-4758-b308-165ef80dfe67">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/kozik/IdeaProjects/PhoneStore/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/ShopDB</jdbc-url>
     </data-source>
