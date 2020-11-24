@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>PhoneStore Home</title>
-    <link rel="stylesheet" href="../../../style.css" />
+    <title>PhoneStore</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          rel="stylesheet"/>
+          rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-
-<header th:insert="blocks/header :: header" ></header>
+<header th:insert="templates/header :: header" ></header>
 
 <main>
     <div class="phones_title">
@@ -22,32 +16,24 @@
             <h1>Phones</h1>
         </div>
     </div>
-    <section id="phones">
+    <div class="products-page">
         <div class="container_phones">
             <ul class="goods">
-                <li th:each="element : ${products}" class="product hover-effect1">
-                    <a th:href="'/products/' + ${element.getProducts_model().replaceAll(' ', '-')}">
+                <li th:each="product : ${products}" class="product hover-effect1">
+                    <a th:href="@{/products/{id}(id=${product.getId()})}">
                         <div class="product__supcontainer">
-
                             <img
                                 class="product__image"
-                                th:src="'/phones/' + ${element.getProducts_model().toString().replaceAll(' ', '') + '.png'}"
-                                alt=""
+                                th:src="${product.getName().replaceAll(' ', '') + '.png'}"
                             />
                         </div>
                     </a>
                     <div class="product__subcontainer">
-                        <h5
-                            th:text="${element.getProducts_model()}"
-                            class="product__title"
-                        ></h5>
-                        <h6
-                            th:text="${element.getProducts_company()}"
-                            class="product__subtitle"
-                        ></h6>
+                        <h5 th:text="${product.getName()}" class="product__title"></h5>
+                        <h6 th:text="${product.getCompany() }" class="product__subtitle"></h6>
                         <div class="product__prices">
                             <span
-                              th:text="${element.getProducts_price()} + ' руб.'"
+                              th:text="${product.getPrice()} + ' руб.'"
                               class="product__newprice">
                             </span>
                         </div>
@@ -58,11 +44,58 @@
                 </li>
             </ul>
         </div>
-    </section>
+        <div class="filter">
+            <div class="filter-menu">
+                <div class="filter-categories">
+                    <span class="filter-title">Серия</span>
+                    <div class="filter-small-title">
+                        <span style="" class="niceCheck">
+                            <input class="checkbox-input" type="checkbox"
+                                   name="SERIES[]"
+                                   value="iphone-12-pro">
+                             <label class="checkbox-label">iPhone 7</label>
+                         </span>
+                        <br class="clear"/>
+                    </div>
+                    <div class="filter-small-title">
+                        <span style="" class="niceCheck">
+                            <input class="checkbox-input" type="checkbox"
+                                   name="SERIES[]"
+                                   value="iphone-12-pro">
+                             <label class="checkbox-label">iPhone 8</label>
+                         </span>
+                        <br class="clear"/>
+                    </div>
+                    <div class="filter-small-title">
+                        <span style="" class="niceCheck">
+                            <input class="checkbox-input" type="checkbox"
+                                   name="SERIES[]"
+                                   value="iphone-12-pro">
+                             <label class="checkbox-label">iPhone X</label>
+                         </span>
+                        <br class="clear"/>
+                    </div>
+                    <div class="filter-small-title">
+                        <span style="" class="niceCheck">
+                            <input class="checkbox-input" type="checkbox"
+                                   name="SERIES[]"
+                                   value="iphone-12-pro">
+                             <label class="checkbox-label">iPhone 11</label>
+                         </span>
+                        <br class="clear"/>
+                    </div>
+                </div>
+                <span class="filter-title">Цена, ₽</span>
+                <div class="filter-price-bars">
+                    <input type="text" name="min_price" class="filter-price" placeholder="30 000" value="">-
+                    <input type="text" class="filter-price" name="max_price" placeholder="120 000" value="">
+                </div>
+                <button class="btn btn-outline-secondary">Показать результат</button>
+            </div>
+        </div>
+    </div>
 </main>
 
-<footer th:insert="blocks/footer :: footer" ></footer>
-
+<footer th:insert="templates/footer :: footer" ></footer>
 </body>
-
 </html>

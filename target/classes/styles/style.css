@@ -17,7 +17,7 @@ p {
   margin: 0;
 }
 
-.header {
+.black-header {
   margin-bottom: 7vh;
   z-index: 10000;
   position: fixed;
@@ -63,14 +63,14 @@ p {
   width: 400px;
 }
 
-.header a {
+.black-header a {
   color: #999;
   -webkit-transition: color 0.2s linear;
   -o-transition: color 0.2s linear;
   transition: color 0.2s linear;
 }
-.header a:hover {
-  color: #fff;
+.black-header a:hover {
+  color: #569def;
   text-decoration: none;
 }
 nav ul ul {
@@ -92,6 +92,13 @@ nav ul ul li {
   position: relative;
 }
 
+hr {
+  /*  margin-right: 10vw;
+    border: none;
+    background-color: #569def;
+    size: 32px;*/
+}
+
 .container {
   width: 960px;
 }
@@ -99,6 +106,45 @@ nav ul ul li {
 .container_phones {
   width: 960px;
   margin-left: 10vh;
+}
+
+.products-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter {
+  margin-right: 50px;
+  width: 350px;
+}
+
+.filter-menu {
+  padding: 30px 0 30px 30px;
+  border-left: solid 2px #b5b5b5;
+  position: fixed;
+}
+
+.filter-categories {
+  margin-bottom: 30px;
+}
+
+.filter-title {
+  padding-bottom: 10px;
+}
+
+.filter-small-title {
+
+}
+
+.filter-price-bars {
+  display: flex;
+  margin-bottom: 35px;
+
+}
+
+.filter-price {
+  width: 100px;
+  padding: 5px 15px;
 }
 
 .promo {
@@ -114,7 +160,7 @@ nav ul ul li {
   justify-content: center;
   width: 100%;
   height: 88vh;
-  background: url("static/background.png") 30% 30%;
+  background: url("/../static/background.png") 30% 30%;
   background-size: cover;
 }
 
@@ -187,9 +233,9 @@ nav ul ul li {
   transition: all 0.5s ease;
 }
 .hover-effect1:hover {
-  -moz-box-shadow: 0 0 10px #000;
-  -webkit-box-shadow: 0 0 10px #000;
-  box-shadow:0 0 10px #000;
+  -moz-box-shadow: 0 0 5px #000;
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow:0 0 5px #000;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -208,22 +254,15 @@ nav ul ul li {
   grid-template-columns: 1fr 1fr 1fr;
 }
 .phones_title {
-  margin: 14vh 0 0 0;
+  margin: 14vh 0 5vh 0;
   width: 100%;
-  height: auto;
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .phones_title_text {
-margin-left: 14vh;
+  margin-left: 14vh;
+  border-bottom: solid 10px rgba(86, 157, 239, 0.53);
 }
 .product {
   padding: 10px;
