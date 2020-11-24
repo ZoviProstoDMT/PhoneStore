@@ -3,13 +3,21 @@ package PhoneStore.dataBase.services;
 import PhoneStore.dataBase.dao.ProductDaoImpl;
 import PhoneStore.dataBase.models.Product;
 import PhoneStore.dataBase.services.impl.ProductService;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class ProductServiceImpl implements ProductService {
 
     private final ProductDaoImpl productDao = new ProductDaoImpl();
 
     public ProductServiceImpl() {
+    }
+
+    @Override
+    public Product findById(int id) {
+        return productDao.findById(id);
     }
 
     @Override

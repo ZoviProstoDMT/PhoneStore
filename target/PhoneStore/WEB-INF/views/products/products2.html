@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneStore</title>
+    <link rel="stylesheet" href="../../../style.css" />
+</head>
+<body>
+<h2>PRODUCTS THERE:</h2>
+<div th:each="product : ${products}">
+    <a th:href="@{/products/{id}(id=${product.getId()})}" th:text="${product.getName()}">product</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="UTF-8">
+<head>
+    <meta charset="utf-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>PhoneStore Home</title>
+    <link rel="stylesheet" href="../../../style.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          rel="stylesheet"/>
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header" ></header>
+
+<main>
+    <div class="phones_title">
+        <div class="phones_title_text">
+            <h1>Phones</h1>
+        </div>
+    </div>
+    <section id="phones">
+        <div class="container_phones">
+            <ul class="goods">
+                <li th:each="element : ${products}" class="product hover-effect1">
+                    <a th:href="'/products/' + ${element.getProducts_model().replaceAll(' ', '-')}">
+                        <div class="product__supcontainer">
+
+                            <img
+                                class="product__image"
+                                th:src="'/phones/' + ${element.getProducts_model().toString().replaceAll(' ', '') + '.png'}"
+                                alt=""
+                            />
+                        </div>
+                    </a>
+                    <div class="product__subcontainer">
+                        <h5
+                            th:text="${element.getProducts_model()}"
+                            class="product__title"
+                        ></h5>
+                        <h6
+                            th:text="${element.getProducts_company()}"
+                            class="product__subtitle"
+                        ></h6>
+                        <div class="product__prices">
+                            <span
+                              th:text="${element.getProducts_price()} + ' руб.'"
+                              class="product__newprice">
+                            </span>
+                        </div>
+                        <div class="product__buttons">
+                            <button class="product__buttons-box transition">Купить</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer th:insert="blocks/footer :: footer" ></footer>
+
+</body>
+
+</html>

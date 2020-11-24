@@ -10,6 +10,13 @@ import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
 
+    public Product findById(int id) {
+        Session session =  HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Product product = session.byId(Product.class).load(id);
+        session.close();
+        return product;
+    }
+
     public Product findByModel(String model) {
         Session session =  HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Product product = session.byId(Product.class).load(model);
