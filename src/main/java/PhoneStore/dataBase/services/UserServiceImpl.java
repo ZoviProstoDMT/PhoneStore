@@ -3,11 +3,16 @@ package PhoneStore.dataBase.services;
 import PhoneStore.dataBase.dao.UserDaoImpl;
 import PhoneStore.dataBase.models.User;
 import PhoneStore.dataBase.services.impl.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class UserServiceImpl implements UserService {
 
-    private final UserDaoImpl usersDao = new UserDaoImpl();
+    @Autowired
+    private UserDaoImpl usersDao;
 
     public UserServiceImpl() {
     }

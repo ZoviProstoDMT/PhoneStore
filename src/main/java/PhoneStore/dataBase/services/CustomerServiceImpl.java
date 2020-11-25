@@ -3,12 +3,16 @@ package PhoneStore.dataBase.services;
 import PhoneStore.dataBase.dao.CustomerDaoImpl;
 import PhoneStore.dataBase.models.Customer;
 import PhoneStore.dataBase.services.impl.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CustomerServiceImpl implements CustomerService {
 
-    private final CustomerDaoImpl customerDao = new CustomerDaoImpl();
+    @Autowired
+    private CustomerDaoImpl customerDao;
     
     public CustomerServiceImpl() {
     }

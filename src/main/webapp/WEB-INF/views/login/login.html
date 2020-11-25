@@ -1,21 +1,29 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" lang="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>PhoneStore</title>
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link href="style.css" rel="stylesheet" type="text/css"/>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            rel="stylesheet"/>
+          rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<form class="formLogin" action="#обработчик">
-    <h1>Login Form</h1>
-    <label for="email">Email
-        <input required type="text" placeholder="username" />
-    </label>
-    <label for="password">Password
-    <input required type="password" placeholder="pass" />
-    </label>
-    <button>Login</button>
-</form>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Sign In </h2>
+        <a href="/PhoneStore/signup">
+            <h2 class="inactive underlineHover">Sign Up </h2>
+        </a>
+        <form th:method="POST" th:action="@{/login}" th:object="${user}">
+            <input type="text" id="login" class="fadeIn second" th:field="*{username}" placeholder="username">
+            <input type="text" id="password" class="fadeIn third" th:field="*{password}" placeholder="password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>

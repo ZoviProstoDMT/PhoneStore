@@ -5,9 +5,11 @@ import PhoneStore.dataBase.models.User;
 import PhoneStore.dataBase.utils.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class UserDaoImpl implements UserDao {
 
     @Override

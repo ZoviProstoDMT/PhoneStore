@@ -3,6 +3,7 @@ package PhoneStore.dataBase.services;
 import PhoneStore.dataBase.dao.ProductDaoImpl;
 import PhoneStore.dataBase.models.Product;
 import PhoneStore.dataBase.services.impl.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,9 +11,10 @@ import java.util.List;
 @Component
 public class ProductServiceImpl implements ProductService {
 
-    private final ProductDaoImpl productDao = new ProductDaoImpl();
+    private final ProductDaoImpl productDao;
 
-    public ProductServiceImpl() {
+    public ProductServiceImpl(ProductDaoImpl productDao) {
+        this.productDao = productDao;
     }
 
     @Override
