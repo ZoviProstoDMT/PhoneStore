@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>PhoneStore</title>
+    <link href="../style.css" rel="stylesheet" type="text/css"/>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link rel="stylesheet" href="../../../style/style.css" />
+          rel="stylesheet" type="text/css"/>
 </head>
+
 <body>
-<p th:text="${product.getName()}"></p>
-<p th:text="${product.getId()}"></p>
+<header th:insert="templates/header :: header" ></header>
+
+<main>
+    <div class="product-page-container">
+        <div class="phones_title">
+            <div class="phones_title_text">
+                <h1 th:text="${product.getCompany() + ' ' + product.getName()}"></h1>
+            </div>
+        </div>
+        <div class="product-page">
+            <div class="product-card">
+                <div class="product-img">
+                    <img class="product-img" th:src="${'/PhoneStore/'+product.getName().replaceAll(' ', '') + '.png'}"/>
+                </div>
+            </div>
+            <div class="product-description">
+                <h4>Описание</h4>
+                В новом устройстве все важнейшие аспекты значительно улучшены.
+                Это принципиально новая система камер для фото и видеосъемки.
+                Максимально мощный и экономичный аккумулятор. Стереодинамики с богатым звучанием.
+                Самый яркий и разноцветный из всех дисплеев данной продукции. Защита от брызг и воды.
+                И его внешние данные впечатляют не менее, чем внутренние возможности.
+            </div>
+            <div class="filter">
+                <div class="filter-menu">
+                    <h4>Комплектация</h4>
+                    <div class="product-price" th:text="${product.getPrice()} + ' руб.'"></div>
+                    <div class="product-buttons">
+                        <button class="product__buttons-box transition">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="templates/footer :: footer" ></footer>
 </body>
 </html>
