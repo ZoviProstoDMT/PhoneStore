@@ -26,16 +26,23 @@ public class LoginController {
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute("user") User user) {
-        List<User> users = userService.findAllUsers();
-        if (users.contains(user))
-            return "home/home";
+        User testUser = userService.findUser(user.getUsername());
+        if (testUser != null) {
+            if (testUser.getPassword().equals(user.getPassword()))
+                return "redirect:/home";
+            else
+                return "login/login";
+        }
         else
             return "login/login";
     }
 
     @GetMapping("/signup")
     public String signupUser(@ModelAttribute("user") User user) {
-        return "login/signup";
+        if (userService.isExist(user))
+            return "redirect:/home";
+        else
+            return "login/signup";
     }
 
     @PostMapping("/signup")

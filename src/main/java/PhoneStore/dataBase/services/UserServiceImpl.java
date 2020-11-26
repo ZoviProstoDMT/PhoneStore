@@ -51,4 +51,9 @@ public class UserServiceImpl implements UserService {
     public void deleteAllUsers() {
         usersDao.deleteAll();
     }
+
+    @Override
+    public boolean isExist(User user) {
+        return usersDao.isExist(user);
+    }
 }

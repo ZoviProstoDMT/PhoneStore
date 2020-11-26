@@ -11,4 +11,5 @@ public interface UserDao {
     void delete(User user);
     List<User> findAll();
     void deleteAll();
+    boolean isExist(User user);
 }

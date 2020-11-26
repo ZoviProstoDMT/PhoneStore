@@ -11,4 +11,5 @@ public interface UserService {
     void updateUser(User user);
     List<User> findAllUsers();
     void deleteAllUsers();
+    boolean isExist(User user);
 }

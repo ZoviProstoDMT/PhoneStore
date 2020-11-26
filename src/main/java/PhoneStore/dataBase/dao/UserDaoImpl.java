@@ -11,7 +11,14 @@ import java.util.List;
 
 @Component
 public class UserDaoImpl implements UserDao {
-
+    public static void main(String[] args) {
+        User user = new User();
+        user.setUsername("test");
+        user.setPassword("test");
+        user.setFirstname("test");
+        user.setLastname("test");
+        new UserDaoImpl().save(user);
+    }
     @Override
     public User findById(int id) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -23,9 +30,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findByUsername(String username) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        User user = (User) session.byNaturalId(User.class).using("username", username).load();
-        session.close();
-        return user;
+        return (User) session.createQuery("from User where username=:username")
+                .setParameter("username", username).uniqueResult();
     }
 
     @Override
@@ -70,5 +76,10 @@ public class UserDaoImpl implements UserDao {
         session.createQuery("DELETE FROM " + User.class.getSimpleName()).executeUpdate();
         session.getTransaction().commit();
         session.close();
+    }
+
+    @Override
+    public boolean isExist(User user) {
+        return findByUsername(user.getUsername()) != null;
     }
 }
