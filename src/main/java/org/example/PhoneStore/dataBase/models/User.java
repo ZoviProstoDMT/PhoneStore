@@ -1,6 +1,11 @@
 package org.example.PhoneStore.dataBase.models;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table (name = "users")
@@ -28,6 +33,17 @@ public class User {
         this.location = location;
         this.gender = gender;
         this.role = role;
+    }
+
+    public Set<SimpleGrantedAuthority> getAuthorities() {
+        Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+        if (role.equals("admin")) {
+            authorities.add(new SimpleGrantedAuthority("admin"));
+        }
+        else {
+            authorities.add(new SimpleGrantedAuthority("user"));
+        }
+        return authorities;
     }
 
     public int getId() {

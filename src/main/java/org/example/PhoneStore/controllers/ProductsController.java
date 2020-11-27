@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/products")
 public class ProductsController {
 
     final ProductServiceImpl productService;
@@ -16,13 +17,13 @@ public class ProductsController {
         this.productService = productService;
     }
 
-    @GetMapping("/products")
+    @GetMapping()
     public String index(Model model) {
         model.addAttribute("products", productService.findAllProducts());
         return "products/products";
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("product", productService.findById(id));
         return "products/product";
